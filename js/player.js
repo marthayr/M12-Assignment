@@ -3,19 +3,6 @@ let playBtn = document.getElementById('playBtn');
 let favBtn = document.getElementById('favAlbum');
 let displayFav = document.getElementById('favoriteAlbum');
 
-playBtn.addEventListener('click',(e) =>{
-    let userAlbum = selectAlbum.value;
-    console.log(userAlbum);
-
-})
-
-favBtn.addEventListener('click',(e) =>{
-    displayFav.innerHTML = `<p>Favorite Album: ${jbox.favoriteAlbum()}`;
-})
-
-//letAlbumArray = [];
-
-
 class Jukebox {
     constructor(albums) {
         this.albums = []
@@ -67,3 +54,19 @@ album2.play()
 album3.play()
 
 console.log(`Your favorite album is: ${jbox.favoriteAlbum()}`)
+
+//Album array
+let selectArray = [album1, album2, album3];
+
+// Play Button
+playBtn.addEventListener('click',(e) =>{
+    let userAlbum = selectAlbum.value;
+    console.log(userAlbum);
+    selectArray[userAlbum].play();
+    console.log(selectArray[userAlbum]);
+})
+
+// Favorite Album Button
+favBtn.addEventListener('click',(e) =>{
+    displayFav.innerHTML = `<p>Favorite Album:<br> ${jbox.favoriteAlbum()}`;
+})
